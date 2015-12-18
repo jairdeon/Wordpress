@@ -1,22 +1,26 @@
 <?php 
 // Global
+// Aqui eu conto quantos posts existem na minha CPT "area-de-atuacao"
 $count_posts = wp_count_posts('area-de-atuacao');
+// $total conta quantos posts publicados existem.
 $total = $count_posts->publish;
 ?>
 
+<!-- onload inicia a função "initialize" do Google Maps -->
 <body onload="initialize()">
 <style type="text/css">
+/* Regras para dispositivos menores que 300px de largura */
 @media (min-width:300px) {#map {height: 350px;}}
+/* Regras para dispositivos menores que 300px de largura */
 @media (min-width:1000px) {#map {height: 750px;}}
+/* Regras para dispositivos menores que 1500px de largura */
 @media (min-width:1500px) {#map {height: 750px;}}
 hr {border-color: #d9d9d9 -moz-use-text-color -moz-use-text-color; margin-bottom: 5px; margin-top: 5px;}
 
-#map_canvas {
-    width: 100%;
-    height: 100%;
-}
+#map_canvas {width:100%; height: 100%;}
 </style>
 
+<!-- Inicia o script -->
 <script type="text/javascript">
 jQuery(function($) {
     // Asynchronously Load the map API 
@@ -25,6 +29,7 @@ jQuery(function($) {
     document.body.appendChild(script);
 });
 
+// Inicia a função "initialize"
 function initialize() {
     var map;
     var bounds = new google.maps.LatLngBounds();
@@ -32,12 +37,13 @@ function initialize() {
         mapTypeId: 'roadmap'
     };
                     
-    // Display a map on the page
-    map = new google.maps.Map(document.getElementById("map"), mapOptions);
-    map.setTilt(45);
+// Exibe o mapa na div id #map (no fim do código)
+map = new google.maps.Map(document.getElementById("map"), mapOptions);
+map.setTilt(45);
 
 
-// Style
+// Cria um estilo personalizado
+// Veja mais em  https://snazzymaps.com/
 var styles = [
 {
         "featureType": "administrative",
@@ -125,6 +131,7 @@ map.setOptions({styles: styles});
 // Multiple Markers
 var markers = [
 <?php
+// Aqui eu utilizo o query_post para poder obter as publicações.
 $args = array('post_type' => 'area-de-atuacao','posts_per_page' => $total, 'order' => 'DESC');
 $posts_total = new WP_Query( $args ); 
 if ( $posts_total->have_posts() ) {
@@ -135,8 +142,8 @@ $location = get_field('cidade'); $cidade = explode(",", $location['address']);$e
 <?php }} wp_reset_postdata(); ?>
 ];
                         
-    // Info Window Content
-    var infoWindowContent = [
+// Janela das informações quando clicado em cima do marcador.
+var infoWindowContent = [
 <?php
 $args = array('post_type' => 'area-de-atuacao','posts_per_page' => $total, 'order'   => 'DESC');
 $posts_total = new WP_Query( $args ); 
@@ -158,7 +165,7 @@ $location = get_field('cidade'); $cidade = explode(",", $location['address']);$e
     // Display multiple markers on a map
     var infoWindow = new google.maps.InfoWindow(), marker, i;
     
-    // Loop through our array of markers & place each one on the map  
+    // Executa um FOR listando todas os marcadores encontrados pela busca e define as propriedades de cada parte. 
     for( i = 0; i < markers.length; i++ ) {
         var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
         bounds.extend(position);
@@ -182,11 +189,12 @@ $location = get_field('cidade'); $cidade = explode(",", $location['address']);$e
 
     // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
     var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
-        this.setZoom(7);
-        google.maps.event.removeListener(boundsListener);
+    this.setZoom(7);
+    google.maps.event.removeListener(boundsListener);
     });
     
 }
 </script>
 
+<!-- Esta div imprime exibe o mapa -->
 <div id="map"><div id="map_canvas" class="mapping"></div></div>
