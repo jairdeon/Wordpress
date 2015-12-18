@@ -44,18 +44,18 @@ add_action( 'init', 'thenule_cpt', 0 );
 
 add_filter( 'enter_title_here', 'thenule_cpt_titulo' );
 function thenule_cpt_titulo( $input ) {global $post_type;
-if ( is_admin() && 'CPT' == $post_type )
+if ( is_admin() && 'cpt' == $post_type )
 return __( 'Digite o titulo', 'your_textdomain' );
 return $input;}
 
 add_action( 'admin_head', 'thenule_cpt_icone' ); function thenule_cpt_icone() {?>
 <style type="text/css" media="screen">
-#adminmenu #menu-posts-CPT div.wp-menu-image:before { content: "\f233"; }
+#adminmenu #menu-posts-cpt div.wp-menu-image:before { content: "\f233"; }
 </style><?php }
 // - Finaliza as configurações da adição do CPT - //
 
 
-function thenule_cpt_taxonomy()  {
+function thenule_taxonomy()  {
 $labels = array(
                 'name'                       => _x( 'Taxonomy', 'Taxonomy General Name', 'text_domain' ),
                 'singular_name'              => _x( 'Taxonomy', 'Taxonomy Singular Name', 'text_domain' ),
@@ -81,6 +81,6 @@ $args = array(
                 'show_in_nav_menus'          => true,
                 'show_tagcloud'              => true,);
         
-register_taxonomy( 'Taxonomy', 'cpt', $args );}
-add_action( 'init', 'thenule_cpt_taxonomy', 0 );
+register_taxonomy( 'taxonomy', 'cpt', $args );}
+add_action( 'init', 'thenule_taxonomy', 0 );
 ?>
