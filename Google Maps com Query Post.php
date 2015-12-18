@@ -1,5 +1,6 @@
 <?php 
 // Global
+// Utilize o Advanced Custom Fields e leia sua documentação para que o código funcione corretamente.
 // Aqui eu conto quantos posts existem na minha CPT "area-de-atuacao"
 $count_posts = wp_count_posts('area-de-atuacao');
 // $total conta quantos posts publicados existem.
