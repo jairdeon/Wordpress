@@ -151,9 +151,9 @@ if ( $posts_total->have_posts() ) {
 while ( $posts_total->have_posts() ) {
 $posts_total->the_post(); 
 $location = get_field('cidade'); $cidade = explode(",", $location['address']);$endereco = $location['address']; $latitude = $location['lat']; $longitude = $location['lng']; ?>
-['<b>Supervisor:</b> Jair Deon<br>' +
+['<b>Supervisor:</b> Th3nule<br>' +
 '<b>Telefone:</b> <?php echo get_field('telefone_1'); ?><br>' +
-'<b>Email:</b> deon@sakey.com.br<hr>' +
+'<b>Email:</b> contato@email.com.br<hr>' +
 '<b>Nome:</b> <?php echo get_the_title(); ?><br>' +
 '<b>Cidade:</b> <?php echo $cidade[0]; ?><br>' +
 '<b>Telefone:</b> <?php echo get_field('telefone_1'); ?><br>' +
