@@ -1,3 +1,4 @@
+<?php
 // Adiciona Página de opções "Informações"
 if( function_exists('acf_add_options_page') ) {
  
@@ -9,3 +10,4 @@ if( function_exists('acf_add_options_page') ) {
         'redirect'  => false
     ));
 }
+?>
