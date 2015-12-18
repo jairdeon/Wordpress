@@ -1,8 +1,8 @@
 <?php
 // Altere CPT para o nome de sua Custom Post Type
 // Altere cpt para o nome de sua Custom Post Type (será a slug)
-// Altere Taxonomy para o nome de sua Custom Taxonomy
-// Altere taxonomy para o nome de sua Custom Taxonomy (será a slug)
+// Altere Taxonomy_Name para o nome de sua Custom Taxonomy
+// Altere taxonomy_slug para o nome de sua Custom Taxonomy (será a slug)
 
 function thenule_cpt() {
 $labels = array(
@@ -55,22 +55,22 @@ add_action( 'admin_head', 'thenule_cpt_icone' ); function thenule_cpt_icone() {?
 // - Finaliza as configurações da adição do CPT - //
 
 
-function thenule_taxonomy()  {
+function thenule_taxonomy_slug()  {
 $labels = array(
-                'name'                       => _x( 'Taxonomy', 'Taxonomy General Name', 'text_domain' ),
-                'singular_name'              => _x( 'Taxonomy', 'Taxonomy Singular Name', 'text_domain' ),
-                'menu_name'                  => __( 'Gerenciar Taxonomy', 'text_domain' ),
-                'all_items'                  => __( 'Taxonomy', 'text_domain' ),
-                'parent_item'                => __( 'Taxonomy Semelhantes', 'text_domain' ),
-                'parent_item_colon'          => __( 'Taxonomy Semelhantes', 'text_domain' ),
-                'new_item_name'              => __( 'Adicionar Taxonomy', 'text_domain' ),
-                'add_new_item'               => __( 'Adicionar Taxonomy', 'text_domain' ),
-                'edit_item'                  => __( 'Editar Taxonomy', 'text_domain' ),
-                'update_item'                => __( 'Atualizar Taxonomy', 'text_domain' ),
-                'separate_items_with_commas' => __( 'Taxonomy separados em virgula', 'text_domain' ),
-                'search_items'               => __( 'Procurar Taxonomy', 'text_domain' ),
+                'name'                       => _x( 'Taxonomy_Name', 'Taxonomy General Name', 'text_domain' ),
+                'singular_name'              => _x( 'Taxonomy_Name', 'Taxonomy Singular Name', 'text_domain' ),
+                'menu_name'                  => __( 'Gerenciar Taxonomy_Name', 'text_domain' ),
+                'all_items'                  => __( 'Taxonomy_Name', 'text_domain' ),
+                'parent_item'                => __( 'Taxonomy_Name Semelhantes', 'text_domain' ),
+                'parent_item_colon'          => __( 'Taxonomy_Name Semelhantes', 'text_domain' ),
+                'new_item_name'              => __( 'Adicionar Taxonomy_Name', 'text_domain' ),
+                'add_new_item'               => __( 'Adicionar Taxonomy_Name', 'text_domain' ),
+                'edit_item'                  => __( 'Editar Taxonomy_Name', 'text_domain' ),
+                'update_item'                => __( 'Atualizar Taxonomy_Name', 'text_domain' ),
+                'separate_items_with_commas' => __( 'Taxonomy_Name separados em virgula', 'text_domain' ),
+                'search_items'               => __( 'Procurar Taxonomy_Name', 'text_domain' ),
                 'add_or_remove_items'        => __( 'Adicionar ou remover ítens das Taxonomy', 'text_domain' ),
-                'choose_from_most_used'      => __( 'Veja as Taxonomy mais usadas', 'text_domain' ),);
+                'choose_from_most_used'      => __( 'Veja as Taxonomy_Name mais usadas', 'text_domain' ),);
 
 $args = array(
                 'labels'                     => $labels,
@@ -81,6 +81,6 @@ $args = array(
                 'show_in_nav_menus'          => true,
                 'show_tagcloud'              => true,);
         
-register_taxonomy( 'taxonomy', 'cpt', $args );}
-add_action( 'init', 'thenule_taxonomy', 0 );
+register_taxonomy( 'taxonomy_slug', 'cpt', $args );}
+add_action( 'init', 'thenule_taxonomy_slug', 0 );
 ?>
