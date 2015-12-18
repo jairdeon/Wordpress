@@ -1,8 +1,9 @@
+<?php
 // Utilize este código com o Advanced Custom Fields.
 // Código feito para imprimir um shortode com vários códigos dentro.
 // Código criado para o plugin - http://5sec-google-maps-pro.webfactoryltd.com/
 
-<?php
+
 // Com FOR
 $terms = get_field('cidades_de_atuacao'); 
 $conte = count($terms);
