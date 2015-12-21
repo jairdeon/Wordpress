@@ -1,5 +1,5 @@
 <?php
-// No lugar de "sua_custom_taxonomy", coloque sua custom taxnomy.
+// No lugar de "sua_custom_taxonomy", coloque sua custom taxonomy.
 $terms = get_terms('sua_custom_taxonomy'); 
 foreach ( $terms as $term ):
 // Abre o código
