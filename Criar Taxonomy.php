@@ -16,7 +16,7 @@ $labels = array(
                 'add_or_remove_items'        => __( 'Adicionar ou remover ítens das Taxonomy', 'text_domain' ),
                 'choose_from_most_used'      => __( 'Veja os Telefones mais usadas', 'text_domain' ),);
 $args = array(
-                'labels'                     => ,
+                'labels'                     => $labels,
                 'hierarchical'               => true,
                 'public'                     => true,
                 'show_ui'                    => true,
@@ -24,7 +24,7 @@ $args = array(
                 'show_in_nav_menus'          => true,
                 'show_tagcloud'              => true,);
         
-register_taxonomy( 'telefones', 'post',  );}
+register_taxonomy( 'telefones', 'post',  $args);}
 add_action( 'init', 'thenule_telefone', 0 );
 ?>
 
@@ -48,7 +48,7 @@ function thenule_${1:taxonomy_slug}()  {
                 'add_or_remove_items'        => __( 'Adicionar ou remover ítens das Taxonomy', 'text_domain' ),
                 'choose_from_most_used'      => __( 'Veja as ${2:nome_da_taxonomy} mais usadas', 'text_domain' ),);
 \$args = array(
-                'labels'                     => $labels,
+                'labels'                     => \$labels,
                 'hierarchical'               => true,
                 'public'                     => true,
                 'show_ui'                    => true,
@@ -56,7 +56,7 @@ function thenule_${1:taxonomy_slug}()  {
                 'show_in_nav_menus'          => true,
                 'show_tagcloud'              => true,);
         
-register_taxonomy( '${1:taxonomy_slug}', '${3:nome_da_cpt}', $args );}
+register_taxonomy( '${1:taxonomy_slug}', '${3:nome_da_cpt}', \$args );}
 add_action( 'init', 'thenule_${1:taxonomy_slug}', 0 );
 ?>
 ]]></content>
