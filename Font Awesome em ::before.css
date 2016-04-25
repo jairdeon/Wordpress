@@ -1,0 +1,19 @@
+/* Original - https://astronautweb.co/snippet/font-awesome/
+Todos os ícones - http://fortawesome.github.io/Font-Awesome/icon/arrow-circle-right/
+*/
+
+/* Minha adataptação: */
+.thenule .coluna .sidebar .conteudo ul li a:before {
+    content: "\f0a9";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    color: #000;
+    font-size: 12px;
+    padding-right: 0.5em;
+    float: left;
+    top: 0px;
+    left: 0;
+    color: #68a268;
+}
