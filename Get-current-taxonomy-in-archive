@@ -1,0 +1,6 @@
+// Código que obtem a taxonomia atual.
+
+$terms = get_queried_object('sua_taxonomy');
+// $terms->term_id | ID
+// $terms->slug | Slug
+// $terms->name | Nome da categoria
