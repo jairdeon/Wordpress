@@ -1,5 +1,5 @@
 <?php
-// Este código faz com que, uma página possa ter um template expecífico para ela sendo que a mesma 
+// Este código faz com que, uma página possa ter um template específico para ela sendo que a mesma 
 // pode estar dentro de uma pasta ou qualquer diretório.
 // Inicia a função
 function my_account_pages() {
